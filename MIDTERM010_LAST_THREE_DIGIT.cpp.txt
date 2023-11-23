@@ -1,0 +1,37 @@
+
+#include <iostream>
+using namespace std;
+
+int main() {
+
+	int quantity;
+	double price, totalCost;
+	const int DISCOUNT_QUANTITY_THRESHOLD = 10;
+	const double DISCOUNT_PERCENTAGE = 0.10;
+	const double SALES_TAX_RATE = 0.08;
+
+	cout << "Enter the price of the product: $";
+	cin >> price;
+
+	cout << "Enter the quantity: ";
+	cin >> quantity;
+
+	while (quantity <= 0) 
+	{
+		cout << "Invalid quantity. Please enter a valid quantity: ";
+		cin >> quantity;
+	}
+
+	totalCost = price * quantity;
+
+	if (quantity >= DISCOUNT_QUANTITY_THRESHOLD)
+	{
+		totalCost -= totalCost * DISCOUNT_PERCENTAGE;
+	}
+
+	totalCost += totalCost * SALES_TAX_RATE;
+
+	cout << "Total cost: $" << totalCost << endl;
+
+	return 0;
+}
